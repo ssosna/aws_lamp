@@ -4,4 +4,4 @@ file { '/var/111.conf':
         group  => 'root',
         mode    => '766',
         content => "Yes!",
-       }"
+       }
