@@ -1,4 +1,4 @@
-file { '/var/111.conf':
+file { '/tmp/111.conf':
         ensure => file,
         owner  => 'root',
         group  => 'root',
