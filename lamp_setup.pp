@@ -12,6 +12,9 @@
       $mysqlpw_cmd = '/usr/bin/mysqladmin -u root password ChangeThis1 || /bin/true'
       $sysconfig_conf = '/tmp/hng'
       $init_cmd = '/sbin/initctl reload-configuration'
+      $phpdefault = '/var/www/html/index.php'
+      $phpdefaultcontent = '<?php phpinfo(); ?>'
+      $mc = 'mc'
       $www = '/var/www/index.php'
     }
     centos, redhat, linux, Amazon: {
@@ -28,8 +31,8 @@
       $init_cmd = '/bin/true'
       $phpdefault = '/var/www/html/index.php'
       $phpdefaultcontent = '<?php phpinfo(); ?>'
-
       $sysconfig_conf = '/etc/sysconfig/httpd'
+      $mc = 'mc'
       $www = '/var/www/html/index.php'
     }
     default: {
@@ -43,7 +46,7 @@
     File { owner => 'root', group => 'root', mode => '0644', }
 	
     package { $apache: }
-
+    package { $mc: }
     service { $apache_srv:
       ensure  => running,
       enable  => true,
