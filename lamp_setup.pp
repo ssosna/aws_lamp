@@ -16,7 +16,7 @@ class lamp($version='latest') {
       $init_cmd = '/sbin/initctl reload-configuration'
       $www = '/var/www/index.php'
     }
-    centos, redhat, oel, linux, Amazon: {
+    centos, redhat, linux, Amazon: {
       $ok = true
       $apache = ['httpd', 'httpd-devel']
       $apache_srv = 'httpd'
