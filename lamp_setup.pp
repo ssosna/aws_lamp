@@ -16,6 +16,7 @@
       $phpdefaultcontent = '<?php phpinfo(); ?>'
       $mc = 'mc'
       $www = '/var/www/index.php'
+      $version = 'latest'
     }
     centos, redhat, linux, Amazon: {
       $ok = true
@@ -34,6 +35,7 @@
       $sysconfig_conf = '/etc/sysconfig/httpd'
       $mc = 'mc'
       $www = '/var/www/html/index.php'
+      $version = 'latest'
     }
     default: {
       fail("This module is not supported on ${operatingsystem}")
