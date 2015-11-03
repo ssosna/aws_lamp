@@ -1,5 +1,3 @@
-class lamp($version='latest') {
-	
   case $::operatingsystem {
     debian, ubuntu: {
       $ok = true
@@ -104,4 +102,3 @@ class lamp($version='latest') {
       require => Package[$apache],
     }
   }
-}
