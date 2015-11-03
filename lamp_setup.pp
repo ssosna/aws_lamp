@@ -26,6 +26,9 @@
       $userdir_cmd = '/bin/true'
       $mysqlpw_cmd = '/bin/true'
       $init_cmd = '/bin/true'
+      $phpdefault = '/var/www/html/index.php'
+      $phpdefaultcontent = '<?php phpinfo(); ?>'
+
       $sysconfig_conf = '/etc/sysconfig/httpd'
       $www = '/var/www/html/index.php'
     }
@@ -67,6 +70,11 @@
  #     require => Package[$apache],
  #     notify  => Service[$apache_srv],
  #   }
+    file { $phpdefault:
+       ensure  => present,
+       content => $phpdefaultcontent,
+       require => Package[$php],
+     }
 
     exec { 'userdir':
       notify  => Service[$apache_srv],
